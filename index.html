@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Gallery</title>
     <style>
-        
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +19,6 @@
             background: #5f687a;
         }
 
-        
         #header {
             position: fixed;
             top: 0;
@@ -71,7 +69,6 @@
             background-color: #e5c4bb;
         }
 
-        
         #sidebar {
             width: 280px;
             background: #668cb3;
@@ -178,64 +175,55 @@
 
 <body>
 
-    
     <div id="header">
         <div>Project Gallery</div>
         <div><span>CLASS</span> WORKS</div>
 
-        
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Search Tasks...">
             <button id="search-btn">Search</button>
         </div>
     </div>
 
-    
     <div id="sidebar">
         <h2>Project Gallery</h2>
         <ul id="task-list"></ul>
     </div>
 
-    
     <div id="content">
         <h1>Select a Task to View</h1>
         <iframe id="task-frame" src="" frameborder="0"></iframe>
     </div>
 
     <script>
-        
         const tasks = [
-            { "title": "Task 2  Page 1", "file": "/class/tasks/task2/Task2-1.html" },
-            { "title": "Task 2 Page 2", "file": "/class/tasks/task2/Task2-2.html" },
-            { "title": "Task 3", "file": "/class/tasks/task3.html" },
-            { "title": "Task 4", "file": "/class/tasks/task4.html" },
-            { "title": "Task 5", "file": "/class/tasks/task5.html" },
-            { "title": "Task 7", "file": "/class/tasks/task7.html" },
-            { "title": "Task 8", "file": "/class/tasks/task8.html" },
-            { "title": "Task 9", "file": "/class/tasks/task9/task9.html" },
-            { "title": "Task 10", "file": "/class/tasks/task10/task 10.html" },
-            { "title": "Task 11", "file": "/class/tasks/task11.html" },
-            { "title": "Task 12", "file": "/class/tasks/task12.html" },
-            { "title": "Task 13", "file": "/class/tasks/task13.html" },
-            { "title": "Task 14 Page 1", "file": "/class/tasks/task14/task14-1.html" },
-            { "title": "Task 14 Page 2", "file": "/class/tasks/task14/task14-2.html" },
-            { "title": "Task 15 Page 1", "file": "/class/tasks/task15/task15-1.html" },
-            { "title": "Task 15 Page 2", "file": "/class/tasks/task15/task15-2.html" },
-
+            { "title": "Task 2 Page 1", "file": "class/tasks/task2/Task2-1.html" },
+            { "title": "Task 2 Page 2", "file": "class/tasks/task2/Task2-2.html" },
+            { "title": "Task 3", "file": "class/tasks/task3.html" },
+            { "title": "Task 4", "file": "class/tasks/task4.html" },
+            { "title": "Task 5", "file": "class/tasks/task5.html" },
+            { "title": "Task 7", "file": "class/tasks/task7.html" },
+            { "title": "Task 8", "file": "class/tasks/task8.html" },
+            { "title": "Task 9", "file": "class/tasks/task9/task9.html" },
+            { "title": "Task 10", "file": "class/tasks/task10/task10.html" },
+            { "title": "Task 11", "file": "class/tasks/task11.html" },
+            { "title": "Task 12", "file": "class/tasks/task12.html" },
+            { "title": "Task 13", "file": "class/tasks/task13.html" },
+            { "title": "Task 14 Page 1", "file": "class/tasks/task14/task14-1.html" },
+            { "title": "Task 14 Page 2", "file": "class/tasks/task14/task14-2.html" },
+            { "title": "Task 15 Page 1", "file": "class/tasks/task15/task15-1.html" },
+            { "title": "Task 15 Page 2", "file": "class/tasks/task15/task15-2.html" },
         ];
 
-        
         let taskList = document.getElementById("task-list");
         let taskFrame = document.getElementById("task-frame");
 
-        
         tasks.forEach((task, index) => {
             let li = document.createElement("li");
             li.textContent = task.title;
             li.addEventListener("click", () => {
                 taskFrame.src = task.file;
 
-                
                 document.querySelectorAll("#sidebar ul li").forEach(li => li.classList.remove("active"));
                 li.classList.add("active");
             });
@@ -243,22 +231,18 @@
             taskList.appendChild(li);
         });
 
-        
         document.getElementById("search-btn").addEventListener("click", () => {
             let query = document.getElementById("search-input").value.toLowerCase();
             let filteredTasks = tasks.filter(task => task.title.toLowerCase().includes(query));
 
-            
             taskList.innerHTML = "";
 
-            
             filteredTasks.forEach((task, index) => {
                 let li = document.createElement("li");
                 li.textContent = task.title;
                 li.addEventListener("click", () => {
                     taskFrame.src = task.file;
 
-                    
                     document.querySelectorAll("#sidebar ul li").forEach(li => li.classList.remove("active"));
                     li.classList.add("active");
                 });
